@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import SiteHeader from "@/components/site-header";
 import Hero from "@/components/hero";
 import AboutSection from "@/components/about-section";
@@ -7,6 +10,7 @@ import HostingGallery from "@/components/hosting-gallery";
 import AchievementsGallery from "@/components/achievements-gallery";
 import SiteFooter from "@/components/site-footer";
 import SectionHeading from "@/components/section-heading";
+import ResumeModal from "@/components/resume-modal";
 import {
   profile,
   articles,
@@ -18,21 +22,26 @@ import {
 } from "@/data/portfolio";
 
 export default function HomePage() {
+  const [resumeOpen, setResumeOpen] = useState(false);
+
+  const openResume = () => setResumeOpen(true);
+  const closeResume = () => setResumeOpen(false);
+
   return (
     <>
-      <SiteHeader />
+      <SiteHeader onOpenResume={openResume} />
       <main>
         {/* ── Hero ── */}
-        <Hero />
+        <Hero onOpenResume={openResume} />
 
         {/* ── About ── */}
         <AboutSection
-          name={profile.name || undefined}
-          professionalTitle={profile.professionalTitle || undefined}
-          introduction={profile.introduction || undefined}
-          location={profile.location || undefined}
-          languages={profile.languages.length > 0 ? profile.languages : undefined}
-          email={profile.email || undefined}
+          name={profile.name}
+          professionalTitle={profile.professionalTitle}
+          introduction={profile.introduction}
+          location={profile.location}
+          languages={profile.languages}
+          email={profile.email}
         />
 
         {/* ── Writing Archive ── */}
@@ -45,7 +54,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Writing"
               title="Published work"
-              description="Newspaper articles and creative writing published across various publications. Click any item to view full size."
+              description="Author of 62 published literary articles and creative pieces across leading newspapers and magazines. Click any clipping to inspect in full resolution."
               id="writing-heading"
             />
             <PortfolioGallery
@@ -70,7 +79,11 @@ export default function HomePage() {
           <AchievementsGallery items={achievements} />
         </div>
       </main>
-      <SiteFooter />
+
+      <SiteFooter onOpenResume={openResume} />
+
+      {/* ── Interactive Resume Pop-up Modal ── */}
+      <ResumeModal isOpen={resumeOpen} onClose={closeResume} />
     </>
   );
 }

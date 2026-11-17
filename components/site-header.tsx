@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { Menu, X, FileText, Download } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -12,7 +11,11 @@ const navLinks = [
   { label: "Achievements", href: "#achievements" },
 ];
 
-export default function SiteHeader() {
+interface SiteHeaderProps {
+  onOpenResume?: () => void;
+}
+
+export default function SiteHeader({ onOpenResume }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,11 +27,27 @@ export default function SiteHeader() {
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleResumeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    closeMenu();
+    if (onOpenResume) {
+      onOpenResume();
+    } else {
+      window.location.href = "/resume";
+    }
+  };
 
   return (
     <header
@@ -46,7 +65,7 @@ export default function SiteHeader() {
             className="font-[var(--font-playfair)] text-lg tracking-tight text-[#202321] hover:text-[#315B4C] transition-colors"
             aria-label="Back to top"
           >
-            <span className="font-semibold italic">Portfolio</span>
+            <span className="font-semibold italic">Shashwati Sabhapandit</span>
           </a>
 
           {/* Desktop nav */}
@@ -62,30 +81,16 @@ export default function SiteHeader() {
             ))}
           </nav>
 
-          {/* Resume actions */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/resume"
-              className="flex items-center gap-1.5 text-sm px-4 py-2 rounded border border-[#315B4C] text-[#315B4C] hover:bg-[#315B4C] hover:text-white transition-colors"
+          {/* Single Resume Action: View Resume */}
+          <div className="hidden md:flex items-center">
+            <button
+              onClick={handleResumeClick}
+              className="flex items-center gap-2 text-sm px-4 py-2 rounded-sm bg-[#315B4C] text-white hover:bg-[#264a3c] transition-colors shadow-sm"
+              aria-label="View Resume Popup"
             >
-              <FileText size={14} />
-              View Resume
-            </Link>
-            <Link
-              href="/resume"
-              onClick={(e) => {
-                e.preventDefault();
-                window.open("/resume", "_blank");
-                setTimeout(() => {
-                  const w = window.open("/resume", "_blank");
-                  if (w) { w.onload = () => w.print(); }
-                }, 100);
-              }}
-              className="flex items-center gap-1.5 text-sm px-4 py-2 rounded bg-[#315B4C] text-white hover:bg-[#264a3c] transition-colors"
-            >
-              <Download size={14} />
-              Download Resume
-            </Link>
+              <FileText size={15} />
+              <span>View Resume</span>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -121,27 +126,13 @@ export default function SiteHeader() {
             ))}
           </nav>
           <div className="flex flex-col gap-3 mt-auto">
-            <Link
-              href="/resume"
-              onClick={closeMenu}
-              className="flex items-center justify-center gap-2 py-3 rounded border border-[#315B4C] text-[#315B4C] hover:bg-[#315B4C] hover:text-white transition-colors"
+            <button
+              onClick={handleResumeClick}
+              className="flex items-center justify-center gap-2 py-3 rounded-sm bg-[#315B4C] text-white hover:bg-[#264a3c] transition-colors text-base font-medium"
             >
-              <FileText size={16} />
-              View Resume
-            </Link>
-            <Link
-              href="/resume"
-              onClick={(e) => {
-                e.preventDefault();
-                closeMenu();
-                const w = window.open("/resume", "_blank");
-                if (w) { w.onload = () => w.print(); }
-              }}
-              className="flex items-center justify-center gap-2 py-3 rounded bg-[#315B4C] text-white hover:bg-[#264a3c] transition-colors"
-            >
-              <Download size={16} />
-              Download Resume
-            </Link>
+              <FileText size={18} />
+              <span>View Resume</span>
+            </button>
           </div>
         </div>
       )}

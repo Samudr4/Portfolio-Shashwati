@@ -47,6 +47,19 @@ body {
 
 @media print {
   .no-print { display: none !important; }
-  body { background: white !important; color: black !important; font-size: 11pt; }
+  body { background: white !important; color: black !important; font-size: 10pt; }
   a { color: inherit; text-decoration: none; }
+  div[role="dialog"] {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+  }
+  #printable-resume {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
 }

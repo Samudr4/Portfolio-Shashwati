@@ -16,18 +16,17 @@ export type PortfolioItem = {
 };
 
 // ----------------------------------------------------------------
-// PROFILE — fill in after owner confirmation. Empty strings are
-// hidden from the rendered page automatically.
+// PROFILE — from official resume
 // ----------------------------------------------------------------
 export const profile = {
-  name: "",                    // owner to supply
-  professionalTitle: "",       // owner to approve
-  introduction: "",            // factual, owner-approved
-  portrait: "",                // optional supplied image path
-  email: "",
-  phone: "",
-  location: "",
-  languages: [] as string[],
+  name: "Shashwati Sabhapandit",
+  professionalTitle: "Versatile Media & Communication Professional | Anchor | Content Writer | Public Speaker",
+  introduction: "Dynamic and accomplished communication professional with proven expertise in anchoring, content creation, public speaking, and media engagement.",
+  portrait: "/images/hosting/hosting_01.jpg",
+  email: "sabhapondit23@gmail.com",
+  phone: "8011308964",
+  location: "Guwahati, Assam",
+  languages: ["Assamese", "English", "Hindi", "Sanskrit"],
   socialLinks: [] as { label: string; url: string }[],
 };
 
