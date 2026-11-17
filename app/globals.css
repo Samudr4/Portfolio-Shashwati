@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F7F5F0;
+  --color-ink: #202321;
+  --color-accent: #315B4C;
+  --color-muted: #ECEAE4;
+  --color-rule: #D8D5CE;
+  --color-ink-mid: #5A5955;
+  --font-display: 'Playfair Display', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --color-paper: #F7F5F0;
+  --color-ink: #202321;
+  --color-accent: #315B4C;
+  --color-muted: #ECEAE4;
+  --color-rule: #D8D5CE;
+  --color-ink-mid: #5A5955;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-ui, system-ui, sans-serif);
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 11pt; }
+  a { color: inherit; text-decoration: none; }
+}
