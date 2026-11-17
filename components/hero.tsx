@@ -38,24 +38,31 @@ export default function Hero({ onOpenResume }: HeroProps) {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left — editorial typography hero */}
           <div className="lg:col-span-7 xl:col-span-7">
-            {/* Category label */}
-            <p className="text-xs uppercase tracking-[0.2em] text-[#315B4C] mb-4 font-semibold">
-              Media & Communication Professional
-            </p>
+            {/* Identity & Category Eyebrow */}
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-xs sm:text-sm uppercase tracking-[0.22em] text-[#202321] font-bold">
+                Shashwati Sabhapandit
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#315B4C]" aria-hidden="true" />
+              <span className="text-xs uppercase tracking-[0.2em] text-[#315B4C] font-semibold">
+                Personal Portfolio
+              </span>
+            </div>
 
-            {/* Display heading with Name */}
-            <h1 className="font-[var(--font-playfair)] text-4xl sm:text-6xl lg:text-7xl leading-[1.08] tracking-tight text-[#202321] mb-5">
-              Shashwati <br />
-              <span className="italic text-[#315B4C]">Sabhapandit</span>
+            {/* Display heading: Writer. Voice. Presence. */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.04] tracking-tight text-[#202321] mb-6 font-normal">
+              Writer. <span className="italic text-[#315B4C]">Voice.</span>
+              <br />
+              Presence.
             </h1>
 
+            {/* Green divider rule */}
+            <div className="w-16 h-0.5 bg-[#315B4C] mb-6" aria-hidden="true" />
+
             {/* Sub-tagline */}
-            <p className="text-sm uppercase tracking-widest text-[#B8863A] font-medium mb-6">
+            <p className="text-xs sm:text-sm uppercase tracking-widest text-[#B8863A] font-semibold mb-4">
               Anchor · Content Writer · Public Speaker · Broadcaster
             </p>
-
-            {/* Divider rule */}
-            <div className="w-16 h-px bg-[#315B4C] mb-6" aria-hidden="true" />
 
             {/* Introduction */}
             <p className="text-base sm:text-lg text-[#5A5955] leading-relaxed max-w-xl mb-8">
@@ -68,7 +75,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
               articles.
             </p>
 
-            {/* CTAs: Only Explore Work & View Resume */}
+            {/* CTAs */}
             <div className="flex flex-wrap gap-4">
               <a
                 href="#writing"
