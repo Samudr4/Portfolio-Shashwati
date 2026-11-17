@@ -38,20 +38,14 @@ export default function Hero({ onOpenResume }: HeroProps) {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left — editorial typography hero */}
           <div className="lg:col-span-7 xl:col-span-7">
-            {/* Identity & Category Eyebrow */}
-            <div className="flex items-center gap-3 mb-5">
-              <span className="text-xs sm:text-sm uppercase tracking-[0.22em] text-[#202321] font-bold">
-                Shashwati Sabhapandit
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#315B4C]" aria-hidden="true" />
-              <span className="text-xs uppercase tracking-[0.2em] text-[#315B4C] font-semibold">
-                Personal Portfolio
-              </span>
-            </div>
+            {/* Category Eyebrow */}
+            <p className="text-xs uppercase tracking-[0.25em] text-[#315B4C] font-semibold mb-5">
+              Personal Portfolio
+            </p>
 
-            {/* Display heading: Writer. Voice. Presence. */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.04] tracking-tight text-[#202321] mb-6 font-normal">
-              Writer. <span className="italic text-[#315B4C]">Voice.</span>
+            {/* Display heading: Writer. Voice. Presence. (Bigger, Bold, Not Italic) */}
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-[#202321] leading-[0.98] mb-6">
+              Writer. <span className="text-[#315B4C]">Voice.</span>
               <br />
               Presence.
             </h1>
