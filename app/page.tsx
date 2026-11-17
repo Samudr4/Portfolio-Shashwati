@@ -39,6 +39,7 @@ export default function HomePage() {
           name={profile.name}
           professionalTitle={profile.professionalTitle}
           introduction={profile.introduction}
+          aboutImage={profile.aboutImage}
           location={profile.location}
           languages={profile.languages}
           email={profile.email}

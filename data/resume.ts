@@ -28,7 +28,7 @@ export const resumeProfile = {
   phone: "8011308964",
   location: "Guwahati, Assam",
   website: "",
-  portrait: "/images/hosting/hosting_01.jpg",
+  portrait: "/images/profile/shashwati-anchor.jpg",
   languages: ["Assamese", "English", "Hindi", "Sanskrit"],
   summary:
     "Dynamic and accomplished communication professional with proven expertise in anchoring, content creation, public speaking, and media engagement.",
