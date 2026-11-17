@@ -21,7 +21,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 px-5 sm:px-8 lg:px-12"
+      className="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center pt-24 sm:pt-28 pb-14 sm:pb-20 px-4 sm:px-8 lg:px-12 overflow-hidden"
       aria-label="Introduction"
     >
       {/* Subtle background rule lines — editorial texture */}
@@ -39,27 +39,27 @@ export default function Hero({ onOpenResume }: HeroProps) {
           {/* Left — editorial typography hero */}
           <div className="lg:col-span-7 xl:col-span-7">
             {/* Category Eyebrow */}
-            <p className="text-xs uppercase tracking-[0.25em] text-[#315B4C] font-semibold mb-5">
+            <p className="text-xs uppercase tracking-[0.25em] text-[#315B4C] font-semibold mb-4 sm:mb-5">
               Personal Portfolio
             </p>
 
             {/* Display heading: Writer. Voice. Presence. */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#202321] leading-[1.08] mb-6">
-              Writer. <span className="text-[#315B4C]">Voice.</span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold not-italic tracking-tight text-[#202321] leading-[1.04] mb-5 sm:mb-6 break-words">
+              Writer. <span className="text-[#315B4C] not-italic font-bold">Voice.</span>
               <br />
               Presence.
             </h1>
 
             {/* Green divider rule */}
-            <div className="w-16 h-0.5 bg-[#315B4C] mb-6" aria-hidden="true" />
+            <div className="w-16 h-0.5 bg-[#315B4C] mb-5 sm:mb-6" aria-hidden="true" />
 
             {/* Sub-tagline */}
-            <p className="text-xs sm:text-sm uppercase tracking-widest text-[#B8863A] font-semibold mb-4">
+            <p className="text-xs sm:text-sm uppercase tracking-widest text-[#B8863A] font-semibold mb-4 leading-relaxed">
               Anchor · Content Writer · Public Speaker · Broadcaster
             </p>
 
             {/* Introduction */}
-            <p className="text-base sm:text-lg text-[#5A5955] leading-relaxed max-w-xl mb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-[#5A5955] leading-relaxed max-w-xl mb-7 sm:mb-8 font-normal">
               {profile.introduction} Recipient of the{" "}
               <strong className="text-[#202321] font-semibold">
                 Youth Writer Award 2025
@@ -70,17 +70,17 @@ export default function Hero({ onOpenResume }: HeroProps) {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
               <a
                 href="#writing"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#202321] text-[#F7F5F0] text-sm tracking-wide hover:bg-[#315B4C] transition-colors rounded-sm shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#202321] text-[#F7F5F0] text-sm tracking-wide hover:bg-[#315B4C] transition-colors rounded-sm shadow-sm font-medium"
               >
-                Explore Work
+                <span>Explore Work</span>
                 <ArrowDown size={15} />
               </a>
               <button
                 onClick={handleResumeClick}
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#315B4C] text-[#315B4C] hover:bg-[#315B4C] hover:text-white text-sm tracking-wide transition-colors rounded-sm font-medium shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#315B4C] text-[#315B4C] hover:bg-[#315B4C] hover:text-white text-sm tracking-wide transition-colors rounded-sm font-medium shadow-sm cursor-pointer"
                 aria-label="Open Resume Popup"
               >
                 <FileText size={15} />
@@ -90,8 +90,8 @@ export default function Hero({ onOpenResume }: HeroProps) {
           </div>
 
           {/* Right — Portrait Presentation */}
-          <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm">
+          <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end mt-4 lg:mt-0">
+            <div className="relative w-full max-w-[290px] sm:max-w-sm px-2 sm:px-0">
               {/* Outer decorative frame */}
               <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border-2 border-[#D8D5CE] shadow-xl bg-white p-2">
                 <div className="relative w-full h-full overflow-hidden rounded-sm">
@@ -101,27 +101,27 @@ export default function Hero({ onOpenResume }: HeroProps) {
                     fill
                     priority
                     className="object-cover object-top hover:scale-[1.02] transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 400px"
+                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 380px, 400px"
                     unoptimized
                   />
                 </div>
               </div>
 
-              {/* Floating Stat Badges */}
-              <div className="absolute -bottom-5 -left-4 sm:-left-6 bg-[#1F2124] text-white p-3.5 sm:p-4 rounded-sm shadow-lg border-l-4 border-[#C49A58]">
-                <p className="text-[10px] uppercase tracking-widest text-[#C49A58] font-bold">
+              {/* Floating Stat Badges (responsive bounds to prevent overflow) */}
+              <div className="absolute -bottom-4 left-0 sm:-bottom-5 sm:-left-6 bg-[#1F2124] text-white p-3 sm:p-4 rounded-sm shadow-lg border-l-4 border-[#C49A58] max-w-[200px]">
+                <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#C49A58] font-bold">
                   Recognition
                 </p>
-                <p className="text-xs sm:text-sm font-medium">
+                <p className="text-xs sm:text-sm font-medium leading-tight mt-0.5">
                   Youth Writer Award 2025
                 </p>
               </div>
 
-              <div className="absolute -top-4 -right-3 sm:-right-5 bg-white text-[#202321] px-3.5 py-2.5 rounded-sm shadow-md border border-[#D8D5CE]">
-                <p className="text-[10px] uppercase tracking-widest text-[#5A5955] font-semibold">
+              <div className="absolute -top-3 right-0 sm:-top-4 sm:-right-5 bg-white text-[#202321] px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-sm shadow-md border border-[#D8D5CE]">
+                <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#5A5955] font-semibold">
                   Event Hosting
                 </p>
-                <p className="font-[var(--font-playfair)] text-sm font-bold text-[#315B4C]">
+                <p className="font-[var(--font-playfair)] text-xs sm:text-sm font-bold text-[#315B4C]">
                   100+ Events
                 </p>
               </div>
@@ -130,9 +130,9 @@ export default function Hero({ onOpenResume }: HeroProps) {
         </div>
 
         {/* Scroll indicator */}
-        <div className="mt-14 lg:mt-20 flex items-center gap-3 text-[#5A5955]">
+        <div className="mt-12 sm:mt-16 lg:mt-20 flex items-center gap-3 text-[#5A5955]">
           <div className="w-8 h-px bg-[#D8D5CE]" aria-hidden="true" />
-          <span className="text-xs uppercase tracking-[0.2em]">Scroll to explore</span>
+          <span className="text-[11px] sm:text-xs uppercase tracking-[0.2em]">Scroll to explore</span>
         </div>
       </div>
     </section>

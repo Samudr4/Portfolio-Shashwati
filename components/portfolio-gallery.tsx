@@ -25,7 +25,6 @@ export default function PortfolioGallery({ articles, creativeWriting }: Portfoli
       ? articles
       : creativeWriting;
 
-  // Map displayed index back to allItems for lightbox continuity
   const openLightbox = (indexInDisplayed: number) => {
     setLightboxIndex(indexInDisplayed);
   };
@@ -38,9 +37,9 @@ export default function PortfolioGallery({ articles, creativeWriting }: Portfoli
 
   return (
     <div>
-      {/* Filter bar */}
+      {/* Filter bar (horizontal scroll on mobile) */}
       <div
-        className="flex flex-wrap gap-2 mb-8 border-b border-[#D8D5CE] pb-6"
+        className="flex items-center gap-2 mb-6 sm:mb-8 border-b border-[#D8D5CE] pb-4 sm:pb-6 overflow-x-auto no-scrollbar"
         role="tablist"
         aria-label="Writing category filter"
       >
@@ -50,14 +49,18 @@ export default function PortfolioGallery({ articles, creativeWriting }: Portfoli
             role="tab"
             aria-selected={filter === f.key}
             onClick={() => setFilter(f.key)}
-            className={`px-4 py-2 text-sm transition-colors rounded-sm ${
+            className={`whitespace-nowrap px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium transition-colors rounded-sm cursor-pointer shrink-0 ${
               filter === f.key
-                ? "bg-[#315B4C] text-white"
-                : "text-[#5A5955] hover:text-[#315B4C] border border-[#D8D5CE] hover:border-[#315B4C]"
+                ? "bg-[#315B4C] text-white shadow-xs"
+                : "text-[#5A5955] hover:text-[#315B4C] border border-[#D8D5CE] hover:border-[#315B4C] bg-white/50"
             }`}
           >
             {f.label}
-            <span className={`ml-2 text-xs ${filter === f.key ? "text-white/70" : "text-[#5A5955]/60"}`}>
+            <span
+              className={`ml-1.5 sm:ml-2 text-[10px] sm:text-xs font-semibold ${
+                filter === f.key ? "text-white/80" : "text-[#5A5955]/70"
+              }`}
+            >
               {f.count}
             </span>
           </button>
@@ -66,7 +69,7 @@ export default function PortfolioGallery({ articles, creativeWriting }: Portfoli
 
       {/* Grid */}
       <div
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4"
         role="tabpanel"
         aria-label={`Showing ${displayed.length} items`}
       >
@@ -74,7 +77,7 @@ export default function PortfolioGallery({ articles, creativeWriting }: Portfoli
           <button
             key={item.id}
             onClick={() => openLightbox(idx)}
-            className="group relative bg-[#ECEAE4] border border-[#D8D5CE] overflow-hidden text-left hover:border-[#315B4C] transition-colors focus-visible:outline-2 focus-visible:outline-[#315B4C]"
+            className="group relative bg-[#ECEAE4] border border-[#D8D5CE] overflow-hidden text-left hover:border-[#315B4C] transition-colors rounded-xs focus:outline-hidden focus:ring-2 focus:ring-[#315B4C] cursor-pointer"
             aria-label={`Open ${item.title} in viewer`}
           >
             <div className="relative aspect-[3/4] w-full">
@@ -83,19 +86,24 @@ export default function PortfolioGallery({ articles, creativeWriting }: Portfoli
                 alt={item.title}
                 fill
                 className="object-contain p-1 group-hover:scale-[1.02] transition-transform duration-300"
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                sizes="(max-width: 640px) 48vw, (max-width: 1024px) 30vw, 20vw"
                 unoptimized
               />
             </div>
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-[#202321]/0 group-hover:bg-[#202321]/10 transition-colors" aria-hidden="true" />
+            <div
+              className="absolute inset-0 bg-[#202321]/0 group-hover:bg-[#202321]/10 transition-colors pointer-events-none"
+              aria-hidden="true"
+            />
             {/* Category tag */}
-            <div className="absolute top-2 left-2">
-              <span className={`text-[9px] uppercase tracking-widest px-1.5 py-0.5 font-medium ${
-                item.category === "articles"
-                  ? "bg-[#315B4C] text-white"
-                  : "bg-[#202321] text-white"
-              }`}>
+            <div className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2">
+              <span
+                className={`text-[8px] sm:text-[9px] uppercase tracking-wider px-1.5 py-0.5 font-bold rounded-xs ${
+                  item.category === "articles"
+                    ? "bg-[#315B4C] text-white"
+                    : "bg-[#202321] text-white"
+                }`}
+              >
                 {item.category === "articles" ? "Article" : "Creative"}
               </span>
             </div>

@@ -14,10 +14,10 @@ export default function ResumeDocument() {
       className="bg-white text-[#202321] max-w-4xl mx-auto shadow-sm border border-[#D8D5CE] grid md:grid-cols-[280px_1fr] print:border-none print:shadow-none"
     >
       {/* ── Left Sidebar (Dark Charcoal) ── */}
-      <aside className="bg-[#1F2124] text-[#E5E5E5] p-6 sm:p-8 flex flex-col gap-7 print:bg-[#1F2124] print:text-[#E5E5E5]">
+      <aside className="bg-[#1F2124] text-[#E5E5E5] p-5 sm:p-8 flex flex-col gap-6 sm:gap-7 print:bg-[#1F2124] print:text-[#E5E5E5]">
         {/* Profile photo */}
         <div className="flex flex-col items-center text-center">
-          <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#315B4C]/80 shadow-md mb-2">
+          <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-3 sm:border-4 border-[#315B4C]/80 shadow-md mb-2">
             <Image
               src={resumeProfile.portrait}
               alt={resumeProfile.name}
@@ -99,10 +99,10 @@ export default function ResumeDocument() {
       </aside>
 
       {/* ── Right Content Column (Light) ── */}
-      <main className="p-6 sm:p-9 bg-white flex flex-col gap-6">
+      <main className="p-5 sm:p-9 bg-white flex flex-col gap-5 sm:gap-6">
         {/* Header */}
-        <header className="border-b-2 border-[#C49A58] pb-4">
-          <h1 className="font-[var(--font-playfair)] text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1F2124] uppercase leading-none mb-2">
+        <header className="border-b-2 border-[#C49A58] pb-3 sm:pb-4">
+          <h1 className="font-[var(--font-playfair)] text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#1F2124] uppercase leading-tight mb-2">
             {resumeProfile.name}
           </h1>
           <p className="text-xs sm:text-sm font-semibold text-[#B8863A] tracking-wide">

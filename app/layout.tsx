@@ -3,16 +3,19 @@ import "./tailwind-built.css";
 
 export const viewport: Viewport = {
   themeColor: "#315B4C",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export const metadata: Metadata = {
-  title: "Portfolio — Writer · Media Contributor · Event Host",
+  title: "Shashwati Sabhapandit — Writer · Media Contributor · Event Host",
   description:
-    "Personal portfolio showcasing newspaper articles, creative writing, television and radio appearances, event hosting, and achievements.",
+    "Official portfolio of Shashwati Sabhapandit — showcasing newspaper articles, creative writing, television and radio broadcasts, event hosting, and achievements.",
   openGraph: {
-    title: "Portfolio — Writer · Media Contributor · Event Host",
+    title: "Shashwati Sabhapandit — Portfolio",
     description:
-      "Published articles, creative writing, media appearances and event hosting portfolio.",
+      "Official portfolio of Shashwati Sabhapandit — Writer, State Anchor, and Media Professional.",
     type: "website",
   },
 };
@@ -23,16 +26,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#F7F5F0] text-[#202321] antialiased" suppressHydrationWarning>
+      <body
+        className="bg-[#F7F5F0] text-[#202321] antialiased overflow-x-hidden w-full min-h-screen selection:bg-[#315B4C] selection:text-white"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
