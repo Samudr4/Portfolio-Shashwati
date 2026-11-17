@@ -43,8 +43,8 @@ export default function Hero({ onOpenResume }: HeroProps) {
               Personal Portfolio
             </p>
 
-            {/* Display heading: Writer. Voice. Presence. (Bigger, Bold, Not Italic) */}
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-[#202321] leading-[0.98] mb-6">
+            {/* Display heading: Writer. Voice. Presence. */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#202321] leading-[1.08] mb-6">
               Writer. <span className="text-[#315B4C]">Voice.</span>
               <br />
               Presence.
